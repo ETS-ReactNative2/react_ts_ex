@@ -1,0 +1,17 @@
+$root_url: '../imgs';
+
+@mixin base_bg($url) {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('#{$root_url}/#{$url}');
+}
+
+@mixin icon($url) {
+  @include base_bg($url);
+  background-size: 100% 100%;
+}
+
+@mixin bg($url) {
+  @include base_bg($url);
+  background-size: cover;
+}
