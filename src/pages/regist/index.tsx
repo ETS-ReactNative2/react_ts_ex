@@ -129,11 +129,11 @@ export class Regist extends React.Component<RegistProps, {}> {
           this.phoneCheckBtnName = '重新发送'
           this.time = 60
           this.isSend = false
-          message.error('发送失败')
+          message.error(res.msg || '发送失败')
         }
       }, (error: any) => {
         this.isSend = false
-        message.error('发送失败')
+        message.error(error.msg || '发送失败')
       })
     }
   }

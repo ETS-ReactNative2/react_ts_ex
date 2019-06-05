@@ -5,7 +5,8 @@ import {
   Icon,
   Input,
   Button,
-  Checkbox
+  Checkbox,
+  message
 } from 'antd'
 import { RouteComponentProps } from 'react-router'
 
@@ -26,7 +27,6 @@ class Login extends React.Component<LoginProps, {}> {
 
   constructor (props: any) {
     super(props)
-    console.log(props)
     this.userService = props.userService
   }
 
@@ -39,7 +39,8 @@ class Login extends React.Component<LoginProps, {}> {
           remember: undefined
         }).then((res: any) => {
           if (res.status === 0) {
-            console.log(res)
+            message.success('登录成功')
+            this.props.history.replace('/')
           }
         }).catch((error: any) => {
           console.log(error)
