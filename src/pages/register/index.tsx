@@ -19,7 +19,7 @@ interface RegistProps extends RouteComponentProps {
 
 @inject('userService')
 @observer
-export class Regist extends React.Component<RegistProps, {}> {
+export class Register extends React.Component<RegistProps, {}> {
 
   public userService !: UserService
   @observable public isSend: boolean = false
@@ -263,4 +263,4 @@ export class Regist extends React.Component<RegistProps, {}> {
   }
 }
 
-export default Form.create()(Regist)
+export default Form.create()(Register)

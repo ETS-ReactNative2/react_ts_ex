@@ -4,7 +4,7 @@ import * as React from 'react'
 import { Route, Router, Switch } from 'react-router'
 
 import Login from '../pages/login'
-import Regist from '../pages/regist'
+import Regist from '../pages/register'
 import Main from '../pages/main'
 
 const browserHistory = createBrowserHistory()
