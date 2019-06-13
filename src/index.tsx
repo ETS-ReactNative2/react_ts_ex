@@ -3,6 +3,7 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
 import 'antd/dist/antd.css'
+import 'swiper/dist/css/swiper.min.css'
 import './assets/sass/main.scss'
 import registerServiceWorker from './pwa/registerServiceWorker'
 import AppRouter from './router'

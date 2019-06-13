@@ -1,39 +1,57 @@
 import { createBrowserHistory } from 'history'
 import { RouterStore, syncHistoryWithStore } from 'mobx-react-router'
 import * as React from 'react'
-import { Route, Router, Switch } from 'react-router'
+import { Route, Router, Switch, Redirect } from 'react-router'
+import Loadable from 'react-loadable'
 
-import Login from '../pages/login'
-import Regist from '../pages/regist'
-import Main from '../pages/main'
+import Loading from 'src/components/loading'
 
 const browserHistory = createBrowserHistory()
 const routerStore = new RouterStore()
 const history = syncHistoryWithStore(browserHistory, routerStore)
 
+const LoginLoading = Loadable({
+  loader: () => import('src/pages/login'),
+  loading: Loading
+})
+
+const RegistLoading = Loadable({
+  loader: () => import('src/pages/regist'),
+  loading: Loading
+})
+
+const MainLoading = Loadable({
+  loader: () => import('src/pages/main'),
+  loading: Loading
+})
 export default class AppRouter extends React.Component<{}, {}> {
+
+  constructor (props: any) {
+    super(props)
+  }
+
   public render () {
     return (
       <Router history={history}>
         <Switch>
           <Route
             path="/"
-            exact={true}
-            strict={true}
-            component={Main}
+            exact
+            component={MainLoading}
           />
           <Route
             path="/main"
-            component={Main}
+            component={MainLoading}
           />
           <Route
             path="/login"
-            component={Login}
+            component={LoginLoading}
           />
           <Route
             path="/regist"
-            component={Regist}
+            component={RegistLoading}
           />
+          <Redirect to="/" />
         </Switch>
       </Router>
     )

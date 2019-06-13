@@ -1,0 +1,50 @@
+.home-body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .swiper-container {
+    width: 100%;
+    height: 600px;
+    max-width: 1500px;
+    transform: translateY(-50px);
+    -webkit-box-reflect: below 0 -webkit-linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,.0) 80%,rgba(250,250,250,.3));
+
+    .swiper-slide {
+      background-color: rgba(255, 255, 255, .8);
+
+      .img-box {
+        width: 100%;
+        height: 100%;
+
+        @for $i from 1 through 16 {
+          &.home-bg#{$i} {
+            @include bg('bg#{$i}.jpg');
+          }
+        }
+      }
+    }
+
+    .swiper-button-next,
+    .swiper-container-rtl .swiper-button-prev {
+      transform: translateX(0);
+      transition: 500ms;
+
+      &:hover {
+        transform: translateX(10px);
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-container-rtl .swiper-button-next {
+      transform: translateX(0);
+      transition: 500ms;
+
+      &:hover {
+        transform: translateX(-10px);
+      }
+    }
+  }
+}

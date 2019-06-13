@@ -7,7 +7,7 @@ const config = require('./webpack.config.dev');
 const paths = require('./paths');
 
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
-const host = process.env.HOST || '0.0.0.0';
+const host = '0.0.0.0';
 
 module.exports = function(proxy, allowedHost) {
   return {
@@ -51,6 +51,7 @@ module.exports = function(proxy, allowedHost) {
     contentBase: paths.appPublic,
     // By default files from `contentBase` will not trigger a page reload.
     watchContentBase: true,
+    
     // Enable hot reloading server. It will provide /sockjs-node/ endpoint
     // for the WebpackDevServer client so it can learn when the files were
     // updated. The WebpackDevServer client is included as an entry point
