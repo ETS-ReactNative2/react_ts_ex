@@ -2,6 +2,8 @@
 @import 'login.scss';
 @import 'regist.scss';
 @import 'header.scss';
+@import 'home.scss';
+@import 'person.scss';
 
 .root {
   width: 100%;
@@ -11,9 +13,41 @@
 .app {
   width: 100%;
   height: 100%;
+
+  .spin-main {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(255, 255, 255, .7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
 }
 
 .main {
   width: 100%;
   height: 100%;
+
+  .main-body {
+    width: 100%;
+    height: calc(100% - 60px);
+    padding: 15px;
+    background-color: rgba(0, 0, 0, .05);
+
+    .main-route {
+      width: 100%;
+      height: 100%;
+
+      & > div[class^="main"] {
+        max-width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
+      }
+    }
+  }
 }

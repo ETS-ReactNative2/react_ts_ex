@@ -1,4 +1,8 @@
-class Util {
-}
+export default class Util {
 
-export default new Util()
+  public static getMapKeyByValue (map: any, value: string): string[] {
+    return Object.keys(map).filter((key: string) => {
+      return value.indexOf(map[key]) > -1
+    })
+  }
+}

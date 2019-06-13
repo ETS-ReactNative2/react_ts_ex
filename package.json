@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.1.0",
     "@types/js-cookie": "^2.2.2",
     "@types/react": "^16.8.13",
     "@types/react-dom": "^16.8.4",
+    "@types/react-loadable": "^5.5.1",
     "@types/react-router": "^4.4.5",
     "@types/react-router-dom": "^4.3.2",
+    "@types/react-transition-group": "^2.9.2",
+    "@types/swiper": "^4.4.3",
     "@types/webpack-env": "^1.13.9",
     "antd": "^3.19.1",
     "axios": "^0.18.0",
@@ -21,8 +25,11 @@
     "react": "^16.8.6",
     "react-dev-utils": "^5.0.2",
     "react-dom": "^16.8.6",
+    "react-loadable": "^5.5.0",
     "react-router-dom": "^5.0.0",
-    "reflect-metadata": "^0.1.13"
+    "react-transition-group": "^4.1.1",
+    "reflect-metadata": "^0.1.13",
+    "swiper": "^4.5.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -88,7 +95,7 @@
       "<rootDir>/src/**/?(*.)(spec|test).(j|t)s?(x)"
     ],
     "testEnvironment": "node",
-    "testURL": "http://localhost",
+    "testURL": "http://0.0.0.0",
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.tsx?$": "<rootDir>/config/jest/typescriptTransform.js",

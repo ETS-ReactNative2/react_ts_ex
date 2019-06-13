@@ -10,7 +10,7 @@ import {
 } from 'antd'
 import { RouteComponentProps } from 'react-router'
 
-import { UserStore } from 'src/types/stores'
+import { UserStore } from 'src/stores/modules/user'
 import { UserService } from 'src/services/user'
 
 export interface LoginProps extends RouteComponentProps<{}> {
@@ -24,10 +24,12 @@ export interface LoginProps extends RouteComponentProps<{}> {
 class Login extends React.Component<LoginProps, {}> {
 
   public userService !: UserService
+  public user !: UserStore
 
   constructor (props: any) {
     super(props)
     this.userService = props.userService
+    this.user = props.user
   }
 
   public login = (e: any) => {
@@ -40,7 +42,8 @@ class Login extends React.Component<LoginProps, {}> {
         }).then((res: any) => {
           if (res.status === 0) {
             message.success('登录成功')
-            this.props.history.replace('/')
+            this.user.saveLoginData(res.data)
+            this.props.history.replace('/main/home')
           }
         }).catch((error: any) => {
           console.log(error)

@@ -1,31 +1,42 @@
 import * as React from 'react'
-import { Route, Switch, RouteComponentProps } from 'react-router'
+import { Route, Switch, RouteComponentProps, Redirect } from 'react-router'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 import Home from './home'
+import Person from './person'
 import HeaderNav from '../../components/header'
 
-export interface MainProps extends RouteComponentProps<{}> {
-}
-
-export default class Main extends React.Component<MainProps, {}> {
+export default class Main extends React.Component<RouteComponentProps<{}>, {}> {
 
   public render () {
+    const location = this.props.location
     return (
       <div className="main" >
         <HeaderNav />
-        <Switch>
-          <Route
-            exact={true}
-            strict={true}
-            component={Home}
-          />
-          <Route
-            path="/home"
-            component={Home}
-          />
-        </Switch>
+        <div className="main-body">
+          <TransitionGroup
+            className="main-route">
+            <CSSTransition
+              key={location.key}
+              timeout={1000}
+              classNames={'fade'}>
+                <Switch location={location}>
+                  <Route
+                    exact
+                    path="/main/home"
+                    component={Home}
+                  />
+                  <Route
+                    exact
+                    path="/main/person"
+                    component={Person}
+                  />
+                  <Redirect to="/main/home" />
+                </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+        </div>
       </div>
-
     )
   }
 }

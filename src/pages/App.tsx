@@ -1,11 +1,12 @@
 import * as React from 'react'
-import Cookies from 'js-cookie'
+import { inject } from 'mobx-react'
 
+@inject('user')
 class App extends React.Component<{}, {}> {
 
   constructor (props: any) {
     super(props)
-    if (!Cookies.get('Access_token')) {
+    if (!props.user.getAccount()) {
       if (location.pathname !== '/login') {
         location.replace('/login')
       }
