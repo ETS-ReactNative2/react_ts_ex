@@ -15,7 +15,7 @@ const LoginLoading = Loadable({
 })
 
 const RegistLoading = Loadable({
-  loader: () => import('src/pages/regist'),
+  loader: () => import('src/pages/register'),
   loading: Loading
 })
 

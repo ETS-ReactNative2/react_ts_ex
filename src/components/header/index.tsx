@@ -24,7 +24,9 @@ class HeaderNav extends React.Component<RouteComponentProps<{}>, {}> {
   constructor (props: any) {
     super(props)
     this.userData = props.user.getAccount()
+    console.log(this.props.location)
     const math: string[] = Utils.getMapKeyByValue(this.pathMap, this.props.location.pathname)
+    console.log(math)
     if (math.length > 0) {
       this.current = math[0]
     }

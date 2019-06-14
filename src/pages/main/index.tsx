@@ -6,7 +6,10 @@ import Home from './home'
 import Person from './person'
 import HeaderNav from '../../components/header'
 
-export default class Main extends React.Component<RouteComponentProps<{}>, {}> {
+interface MainProps {
+  name?: string
+}
+export default class Main extends React.Component<MainProps & RouteComponentProps<{}>, {}> {
 
   public render () {
     const location = this.props.location

@@ -45,8 +45,7 @@ export default class Home extends React.Component<{}, {}> {
               this.sliderList.map(
                 (item: any, index: number) =>
                   <div className="swiper-slide" key={index}>
-                    <div className={`img-box home-bg${index + 1}`}>
-                    </div>
+                    <div className={`img-box home-bg${index + 1}`}></div>
                   </div>
               )
             }
