@@ -4,6 +4,7 @@
 @import 'header.scss';
 @import 'home.scss';
 @import 'person.scss';
+@import './tx/index.scss';
 
 .root {
   width: 100%;
@@ -34,8 +35,8 @@
   .main-body {
     width: 100%;
     height: calc(100% - 60px);
-    padding: 15px;
     background-color: rgba(0, 0, 0, .05);
+    overflow: hidden;
 
     .main-route {
       width: 100%;
@@ -43,8 +44,8 @@
 
       & > div[class^="main"] {
         max-width: 1200px;
-        height: 100%;
-        margin: 0 auto;
+        height: calc(100% - 30px);
+        margin: 15px auto;
         background-color: #fff;
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
       }

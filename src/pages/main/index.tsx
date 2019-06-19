@@ -4,6 +4,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 import Home from './home'
 import Person from './person'
+import TX from './tx'
 import HeaderNav from '../../components/header'
 
 interface MainProps {
@@ -33,6 +34,10 @@ export default class Main extends React.Component<MainProps & RouteComponentProp
                     exact
                     path="/main/person"
                     component={Person}
+                  />
+                  <Route
+                    path="/main/tx"
+                    component={TX}
                   />
                   <Redirect to="/main/home" />
                 </Switch>

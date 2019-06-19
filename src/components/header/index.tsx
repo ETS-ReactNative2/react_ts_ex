@@ -44,7 +44,11 @@ class HeaderNav extends React.Component<RouteComponentProps<{}>, {}> {
           </div>
           <div className="header-con">
             <div className="menu-box">
-              <Menu onClick={this.chooseMenu} className="menu-con" mode="horizontal" selectedKeys={[this.current]}>
+              <Menu
+                onClick={this.chooseMenu}
+                className="menu-con"
+                mode="horizontal"
+                selectedKeys={[this.current]}>
                 <Menu.Item key="home">
                   <span>首页</span>
                 </Menu.Item>
@@ -67,7 +71,7 @@ class HeaderNav extends React.Component<RouteComponentProps<{}>, {}> {
               </span>
             </div>
             <div className="user-op">
-              <Icon type="setting" theme="twoTone" />
+              <Icon type="setting"/>
               <Icon type="poweroff" />
             </div>
           </div>
