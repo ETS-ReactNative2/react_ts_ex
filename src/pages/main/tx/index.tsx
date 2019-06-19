@@ -7,6 +7,7 @@ import { observable } from 'mobx'
 import { Route, Switch, RouteComponentProps, Redirect } from 'react-router'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
+import Utils from 'src/utils'
 import Home from './home'
 import Hero from './hero'
 import Count from './count'
@@ -22,6 +23,18 @@ export default class TX extends React.Component<RouteComponentProps<{}>, {}> {
 
   constructor (props: any) {
     super(props)
+    if (this.props.location.pathname === this.pathMap.home) {
+      this.current = 'home'
+    } else {
+      const math: string[] = Utils.getMapKeyByValue(
+        {
+          ...this.pathMap,
+          home: undefined
+        }, this.props.location.pathname)
+      if (math.length > 0) {
+        this.current = math[0]
+      }
+    }
   }
 
   public chooseMenu = (e: any) => {
