@@ -44,6 +44,7 @@ export default class TX extends React.Component<RouteComponentProps<{}>, {}> {
 
   public render () {
     const location = this.props.location
+    const { pathname } = location
     return (
       <div className="main-tx">
         <Menu
@@ -71,27 +72,29 @@ export default class TX extends React.Component<RouteComponentProps<{}>, {}> {
           <TransitionGroup
             className="main-route">
               <CSSTransition
-              key={location.key}
-              timeout={1000}
+              key={pathname}
+              timeout={{ enter: 1000, exit: 0 }}
               classNames={'fade'}>
-                <Switch location={location}>
-                  <Route
-                    exact
-                    path={this.pathMap.home}
-                    component={Home}
-                  />
-                  <Route
-                    exact
-                    path={this.pathMap.hero}
-                    component={Hero}
-                  />
-                  <Route
-                    exact
-                    path={this.pathMap.count}
-                    component={Count}
-                  />
-                  <Redirect to="/main/tx" />
-                </Switch>
+                <Route
+                  location={location}
+                  render={() => (
+                    <Switch>
+                      <Route
+                        exact
+                        path={this.pathMap.home}
+                        component={Home}
+                      />
+                      <Route
+                        path={this.pathMap.hero}
+                        component={Hero}
+                      />
+                      <Route
+                        path={this.pathMap.count}
+                        component={Count}
+                      />
+                      <Redirect to="/main/tx" />
+                    </Switch>
+                  )} />
               </CSSTransition>
           </TransitionGroup>
         </div>

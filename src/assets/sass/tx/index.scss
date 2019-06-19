@@ -8,4 +8,22 @@
       font-size: 12px;
     }
   }
+  .tx-right {
+    width: calc(100% - 200px);
+    .tx-home-main {
+      width: 100%;
+      height: 100%;
+      background-color: #f00;
+    }
+    .tx-hero-main {
+      width: 100%;
+      height: 100%;
+      background-color: #0f0;
+    }
+    .tx-count-main {
+      width: 100%;
+      height: 100%;
+      background-color: #00f;
+    }
+  }
 }
