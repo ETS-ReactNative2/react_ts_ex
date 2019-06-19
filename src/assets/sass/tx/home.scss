@@ -1,5 +1,70 @@
 .tx-home-main {
- width: 100%;
- height: 100%;
- padding: 10px; 
+  position: relative;
+  width: 100%;
+  height: 100%;
+  @include bg('tx_bg1.png');
+
+  .home-con {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .9);
+    padding: 50px 10px 10px;
+
+    .home-logo {
+      width: 192px;
+      height: 134px;
+      @include icon('tx_logo.png');
+      margin: 0 auto;
+    }
+
+    .home-total {
+      width: 100%;
+      height: 24px;
+      text-align: center;
+      -webkit-box-reflect: below 0 -webkit-linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,.0) 10%,rgba(250,250,250,.3));
+
+      & > span {
+        display: inline-block;
+        width: max-content;
+        height: 100%;
+        line-height: 24px;
+        font-size: 24px;
+        background-image: -webkit-linear-gradient(bottom,#f00, #fd8403, #ff0); 
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        &:nth-child(1) {
+          margin-right: 20px;
+        }
+      }
+    }
+
+    .mp-num {
+      width: 800px;
+      margin: 100px auto 0 auto;
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+
+      @each $i in yh, hh, tx, tj, yl, ym, bx, wl, yj, lw, gm{
+        .#{$i}-icon {
+          & > i {
+            width: 100px;
+            height: 100px;
+            display: block;
+            border-radius: 50%;
+            overflow: hidden;
+            @include icon('#{$i}_item.jpg');
+            -webkit-box-reflect: below 0 -webkit-linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,.0) 80%,rgba(250,250,250,.3));
+          }
+        }
+      }
+
+      .mp-item {
+        width: 120px;
+      }
+    }
+  }
 }

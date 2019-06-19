@@ -44,6 +44,7 @@ export default class TX extends React.Component<RouteComponentProps<{}>, {}> {
 
   public render () {
     const location = this.props.location
+    const { pathname } = location
     return (
       <div className="main-tx">
         <Menu
@@ -51,48 +52,50 @@ export default class TX extends React.Component<RouteComponentProps<{}>, {}> {
           selectedKeys={[this.current]}
           onClick={this.chooseMenu}
           mode="inline">
-            <Menu.Item
-              key="home">
-                <Icon type="home" />
-                <span className="menu-title">首页</span>
-            </Menu.Item>
-            <Menu.Item
-              key="hero">
-                <Icon type="ordered-list" />
-                <span className="menu-title">英雄榜查询</span>
-            </Menu.Item>
-            <Menu.Item
-              key="count">
-                <Icon type="pie-chart" />
-                <span className="menu-title">统计</span>
-            </Menu.Item>
+          <Menu.Item
+            key="home">
+            <Icon type="home" />
+            <span className="menu-title">首页</span>
+          </Menu.Item>
+          <Menu.Item
+            key="hero">
+            <Icon type="ordered-list" />
+            <span className="menu-title">英雄榜查询</span>
+          </Menu.Item>
+          <Menu.Item
+            key="count">
+            <Icon type="pie-chart" />
+            <span className="menu-title">统计</span>
+          </Menu.Item>
         </Menu>
         <div className="tx-right">
           <TransitionGroup
             className="main-route">
-              <CSSTransition
-              key={location.key}
-              timeout={1000}
+            <CSSTransition
+              key={pathname.split('/')[3]}
+              timeout={{ enter: 1000, exit: 0 }}
               classNames={'fade'}>
-                <Switch location={location}>
-                  <Route
-                    exact
-                    path={this.pathMap.home}
-                    component={Home}
-                  />
-                  <Route
-                    exact
-                    path={this.pathMap.hero}
-                    component={Hero}
-                  />
-                  <Route
-                    exact
-                    path={this.pathMap.count}
-                    component={Count}
-                  />
-                  <Redirect to="/main/tx" />
-                </Switch>
-              </CSSTransition>
+              <Route
+                location={location}
+                render={() => (
+                  <Switch>
+                    <Route
+                      exact
+                      path={this.pathMap.home}
+                      component={Home}
+                    />
+                    <Route
+                      path={this.pathMap.hero}
+                      component={Hero}
+                    />
+                    <Route
+                      path={this.pathMap.count}
+                      component={Count}
+                    />
+                    <Redirect to="/main/tx" />
+                  </Switch>
+                )} />
+            </CSSTransition>
           </TransitionGroup>
         </div>
       </div>

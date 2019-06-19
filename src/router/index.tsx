@@ -3,7 +3,6 @@ import { RouterStore, syncHistoryWithStore } from 'mobx-react-router'
 import * as React from 'react'
 import { Route, Router, Switch, Redirect } from 'react-router'
 import Loadable from 'react-loadable'
-
 import Loading from 'src/components/loading'
 
 const browserHistory = createBrowserHistory()
@@ -16,7 +15,7 @@ const LoginLoading = Loadable({
 })
 
 const RegistLoading = Loadable({
-  loader: () => import('src/pages/regist'),
+  loader: () => import('src/pages/register'),
   loading: Loading
 })
 
