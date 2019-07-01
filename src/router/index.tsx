@@ -4,24 +4,31 @@ import * as React from 'react'
 import { Route, Router, Switch, Redirect } from 'react-router'
 import Loadable from 'react-loadable'
 import Loading from 'src/components/loading'
+import * as delay from 'delay'
 
 const browserHistory = createBrowserHistory()
 const routerStore = new RouterStore()
 const history = syncHistoryWithStore(browserHistory, routerStore)
 
 const LoginLoading = Loadable({
-  loader: () => import('src/pages/login'),
-  loading: Loading
+  loader: async () => {  
+    await delay(1000)
+    return import('src/pages/login')
+  },
+  loading: Loading,
+  delay: 300
 })
 
 const RegistLoading = Loadable({
   loader: () => import('src/pages/register'),
-  loading: Loading
+  loading: Loading,
+  delay: 300
 })
 
 const MainLoading = Loadable({
   loader: () => import('src/pages/main'),
-  loading: Loading
+  loading: Loading,
+  delay: 300
 })
 export default class AppRouter extends React.Component<{}, {}> {
 

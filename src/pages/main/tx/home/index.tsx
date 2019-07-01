@@ -6,11 +6,6 @@ import Beans from 'src/beans'
 export default class Home extends React.Component<{}, {}> {
 
   @observable public totalNum: number = 4900000
-  @observable public mpMap = [
-    {
-      icon: 'hh'
-    }
-  ]
 
   public render () {
     return (
